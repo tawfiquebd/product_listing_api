@@ -21,16 +21,16 @@ class ProductSeeder extends Seeder
 
         $products = [];
         foreach (range(1, 20) as $i) {
+            $productName = $faker->word;
             $randomColor = sprintf('%06X', mt_rand(0, 0xFFFFFF));
 
             $products[] = [
-                'name' => $faker->word,
+                'name' => $productName,
                 'description' => $faker->sentence,
                 'price' => $faker->randomFloat(2, 10, 1000),
                 'category_id' => rand(1, 4),
-                'image_url' => "https://placehold.co/600x400/$randomColor/FFF?text=Product+$i",
+                'image_url' => "https://placehold.co/600x400/$randomColor/FFF?text=$productName",
                 'created_at' => now(),
-                'updated_at' => now(),
             ];
         }
         Product::query()->insert($products);
