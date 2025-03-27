@@ -14,6 +14,8 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
+        $this->command->info("Truncating categories table with data!!");
+
         Category::query()->truncate();
 
         Category::query()->insert([
@@ -34,5 +36,7 @@ class CategorySeeder extends Seeder
                 'created_at' => now(),
             ],
         ]);
+
+        $this->command->info('Seed Done!!');
     }
 }
