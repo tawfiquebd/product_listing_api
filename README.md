@@ -8,7 +8,13 @@ This is a Laravel-based Simple Ecommerce API project with Swagger (L5-Swagger) f
 ### Clone the Repository
 ```bash
 git clone https://github.com/tawfiquebd/product_listing_api
+
 cd product_listing_api
+```
+
+### Switch Branch
+```bash
+git checkout feat/api-develop
 ```
 
 ### Install Dependencies
