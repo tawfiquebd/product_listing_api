@@ -22,7 +22,7 @@ class ProductSeeder extends Seeder
         $products = [];
         foreach (range(1, 20) as $i) {
             $productName = $faker->word;
-            $randomColor = sprintf('%06X', mt_rand(0, 0xFFFFFF));
+            $randomColor = sprintf('%06X',rand(0, 9999999));
 
             $products[] = [
                 'name' => $productName,
