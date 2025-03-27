@@ -14,9 +14,6 @@ class ProductSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->command->info("Truncating products table with data!!");
-
-        Product::query()->truncate();
         $faker = Faker::create();
 
         $products = [];
@@ -35,6 +32,6 @@ class ProductSeeder extends Seeder
         }
         Product::query()->insert($products);
 
-        $this->command->info('Seed Done!!');
+        $this->command->info('Products table seed Done!!');
     }
 }
