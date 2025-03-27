@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductRequest;
+use App\Http\Resources\ProductResource;
 use App\Models\Product;
 use Exception;
 use Illuminate\Http\JsonResponse;
@@ -41,7 +42,7 @@ class ProductController extends Controller
             DB::commit();
 
             return response()->json([
-                'data' => $product->load('category'),
+                'data' => new ProductResource($product->load('category')),
                 'message' => 'Data stored successfully!'
             ], ResponseAlias::HTTP_CREATED);
         } catch (Exception $e) {
@@ -58,7 +59,7 @@ class ProductController extends Controller
     {
         try {
             return response()->json([
-                'data' => $product->load('category'),
+                'data' => new ProductResource($product->load('category')),
                 'message' => 'Product fetched successfully!'
             ], ResponseAlias::HTTP_OK);
         } catch (Exception $e) {
@@ -76,7 +77,7 @@ class ProductController extends Controller
             DB::commit();
 
             return response()->json([
-                'data' => $product->load('category'),
+                'data' => new ProductResource($product->load('category')),
                 'message' => 'Product updated successfully!'
             ], ResponseAlias::HTTP_OK);
         } catch (Exception $e) {
